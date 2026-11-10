@@ -4,6 +4,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 from process import *
 import json
+import os
 
 BASE_DIR = Path(__file__).resolve().parent
 CONVERTER_CLASSES = {
@@ -65,17 +66,17 @@ class ConverterHandler(SimpleHTTPRequestHandler):
 
 
 def main():
-    address = ("127.0.0.1", 8000)
+    port = int(os.environ.get("PORT", 8000))
+    address = ("0.0.0.0", port)
     server = ThreadingHTTPServer(address, ConverterHandler)
-    print("Number Converter berjalan di http://127.0.0.1:8000")
-    print("Tekan Ctrl+C untuk menghentikan server.")
+    print(f"Number Converter berjalan di port {port}")
+
     try:
         server.serve_forever()
     except KeyboardInterrupt:
         print("\nServer dihentikan.")
     finally:
         server.server_close()
-
-
+        
 if __name__ == "__main__":
     main()
