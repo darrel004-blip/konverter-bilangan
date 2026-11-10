@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Konverter Bilangan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Number Converter home">
+        <span class="brand-mark">N<span>.</span></span>
+        <span>Final Test <span class="brand-light">IT</span></span>
+      </a>
+      <span class="topbar-note"><span class="status-dot"></span> Konverter Berbasis Python</span>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow"><span class="eyebrow-line"></span> SISTEM BILANGAN</div>
+      <h1>Konverter <span>Bilangan.</span></h1>
+      <p>Konversi angka antar basis dengan mudah. Masukkan satu oktet atau alamat IPv4, lalu lihat hasil dalam tiga basis lainnya.</p>
+    </section>
+
+    <section class="workspace" aria-label="Number converter">
+      <div class="workspace-heading">
+        <div>
+          <p class="section-kicker">01 / MASUKAN</p>
+          <h2>Mulai dari basis</h2>
+        </div>
+        <span class="format-tag">8-BIT</span>
+      </div>
+
+      <div class="base-picker" role="group" aria-label="Pilih basis input">
+        <button class="base-option active" type="button" data-base="decimal" aria-pressed="true">
+          <span class="base-symbol">10</span><span>Desimal</span>
+        </button>
+        <button class="base-option" type="button" data-base="binary" aria-pressed="false">
+          <span class="base-symbol">02</span><span>Biner</span>
+        </button>
+        <button class="base-option" type="button" data-base="octal" aria-pressed="false">
+          <span class="base-symbol">08</span><span>Oktal</span>
+        </button>
+        <button class="base-option" type="button" data-base="hexadecimal" aria-pressed="false">
+          <span class="base-symbol">16</span><span>Heksadesimal</span>
+        </button>
+      </div>
+
+      <form id="converterForm" novalidate>
+        <label class="input-label" for="sourceInput">
+          <span id="inputLabel">Masukkan angka desimal</span>
+          <span id="inputHint" class="input-hint">0 sampai 255</span>
+        </label>
+        <div class="input-wrap">
+          <input id="sourceInput" name="value" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Contoh: 192.168.1.1" required>
+          <span class="input-suffix" id="inputSuffix">DEC</span>
+        </div>
+        <div class="input-footer">
+          <span><span class="info-icon">i</span> Bisa satu angka atau 4 oktet IPv4, dipisahkan titik.</span>
+          <button type="button" class="example-button" id="exampleButton">Isi contoh <span>↗</span></button>
+        </div>
+        <button class="convert-button" id="convertButton" type="submit">
+          <span>Konversi sekarang</span><span class="button-arrow">→</span>
+        </button>
+      </form>
+
+      <div class="error-message" id="errorMessage" role="alert" hidden>
+        <span class="error-symbol">!</span><span id="errorText">Input tidak sesuai aturan.</span>
+      </div>
+
+      <section class="results" id="resultsSection" aria-live="polite" hidden>
+        <div class="results-heading">
+          <div>
+            <p class="section-kicker">02 / KELUARAN</p>
+            <h2>Hasil konversi</h2>
+          </div>
+          <button type="button" class="reset-button" id="resetButton">Mulai Ulang <span>↺</span></button>
+        </div>
+        <div class="result-grid" id="resultGrid"></div>
+      </section>
+    </section>
+
+    <section class="rules-row">
+      <div class="rule-item"><span class="rule-number">01</span><div><strong>Desimal</strong><span>0 – 255 per oktet</span></div></div>
+      <div class="rule-item"><span class="rule-number">02</span><div><strong>Biner</strong><span>Tepat 8 bit per oktet</span></div></div>
+      <div class="rule-item"><span class="rule-number">03</span><div><strong>Oktal</strong><span>0 – 377 per oktet</span></div></div>
+      <div class="rule-item"><span class="rule-number">04</span><div><strong>Heksadesimal</strong><span>00 – FF per oktet</span></div></div>
+    </section>
+
+    <footer class="footer">
+      <span>Final Test IT <span class="footer-separator">/</span> Oleh Clairine, Cherise, Daniel, Darrel, Elynn, dan Jocelyn</span>
+      <span>Desimal · Biner · Oktal · Heksadecimal</span>
+    </footer>
+  </main>
+</body>
+</html>
